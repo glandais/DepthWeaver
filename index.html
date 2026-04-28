@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>DepthWeaver — Magic Eye autostereograms from real-world depth</title>
+  <meta name="description" content="DepthWeaver is an iPhone app that turns LiDAR scans, on-device AI depth, and 3D models into Magic Eye autostereograms. Private by design.">
+  <link rel="canonical" href="https://glandais.github.io/DepthWeaver/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#0B0E14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DepthWeaver — Magic Eye, made from real depth.">
+  <meta property="og:description" content="LiDAR, on-device AI, and 3D models — woven into autostereograms you can stare into.">
+  <meta property="og:url" content="https://glandais.github.io/DepthWeaver/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="./">
+        <span>Depth<span style="font-style:italic;">Weaver</span></span>
+        <span class="wordmark__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./" aria-current="page">Index</a>
+        <a href="privacy/">Privacy</a>
+        <a href="support/">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero__grid">
+        <div class="hero__head">
+          <span class="label">Issue 01 — iOS 17+</span>
+          <h1 class="display">Magic&nbsp;Eye,<br>made from<br><em>real depth.</em></h1>
+          <p class="lead hero__sub">
+            DepthWeaver turns LiDAR scans, on-device AI depth, and 3D models
+            into autostereograms you can stare into — woven on your iPhone,
+            never sent anywhere else.
+          </p>
+
+          <dl class="hero__meta">
+            <div>
+              <dt>Sources</dt>
+              <dd>4</dd>
+            </div>
+            <div>
+              <dt>Patterns</dt>
+              <dd>6 + import</dd>
+            </div>
+            <div>
+              <dt>Network</dt>
+              <dd>0&nbsp;requests</dd>
+            </div>
+          </dl>
+
+          <div class="cta-row">
+            <a class="btn btn--primary" href="#features">Read the field guide <span aria-hidden="true">→</span></a>
+            <a class="btn" href="support/">Support</a>
+          </div>
+        </div>
+
+        <figure class="stereogram" aria-label="A random-dot autostereogram. A sphere is hidden in the noise; cross or diverge your eyes to see it pop forward.">
+          <canvas role="img"></canvas>
+          <div class="stereogram__hint">
+            <span class="stereogram__caption">SIRDS — sphere</span>
+            <button type="button" class="stereogram__reveal" aria-pressed="false">Reveal</button>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section container" id="features">
+      <header class="section__head">
+        <span class="section__num">§ 01</span>
+        <h2 class="section__title">Four ways to capture depth.<br>Six ways to dress it.</h2>
+      </header>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature__num">A — Live LiDAR</div>
+          <h3 class="feature__title">Point, freeze, weave.</h3>
+          <p>On iPhone Pro, the LiDAR scanner streams a real-time depth field. Tap to freeze a frame and feed it straight into the generator.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__num">B — On-device AI</div>
+          <h3 class="feature__title">Depth from any photo.</h3>
+          <p>Depth Anything V2 runs on the Neural Engine. Pick a picture, get a depth map. Nothing uploads — the model is bundled in the app.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__num">C — 3D models</div>
+          <h3 class="feature__title">USDZ, USD, OBJ, SCN.</h3>
+          <p>Drop a 3D file in, orbit the camera, capture the view-space depth. Bundled samples ship with the app to play with right away.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__num">D — Patterns</div>
+          <h3 class="feature__title">Random dot to reaction-diffusion.</h3>
+          <p>Six procedural generators (random dot, stars, Perlin, Worley, Voronoi, reaction-diffusion) plus your own photos as tiles.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <header class="section__head">
+        <span class="section__num">§ 02</span>
+        <h2 class="section__title">Tune every knob.</h2>
+      </header>
+
+      <div class="container-narrow" style="padding-inline: 0;">
+        <p class="lead">
+          DPI, depth strength, separation, oversampling. Remap input and output
+          ranges to push subjects forward or back. Denoise quantized 8-bit imports
+          for clean, banding-free output. Invert depth in one tap. The preview
+          redraws as you slide.
+        </p>
+        <p>
+          Under the hood: a parallelised version of the Thimbleby–Inglis–Witten
+          autostereogram algorithm with W. A. Steer's link-based hidden-surface
+          refinement. Powered by ARKit, Core ML, SceneKit, Metal, and Core Image.
+          Output is upscaled so the minimum dimension is at least 960&nbsp;px —
+          print-ready or share-ready.
+        </p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <header class="section__head">
+        <span class="section__num">§ 03</span>
+        <h2 class="section__title">Private by design.</h2>
+      </header>
+
+      <div class="callout">
+        <div class="callout__mark" aria-hidden="true">·</div>
+        <p>
+          Everything runs on device. No account, no upload, no analytics, no
+          third-party SDKs, no ads. Your photos and 3D scans never leave your
+          iPhone. Read the
+          <a href="privacy/">privacy policy</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="wordmark" href="./">
+        <span>Depth<span style="font-style:italic;">Weaver</span></span>
+        <span class="wordmark__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <a href="privacy/">Privacy</a>
+        <a href="support/">Support</a>
+        <a href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">Report an issue</a>
+        <a href="mailto:gabriel.landais@gmail.com">Contact</a>
+      </nav>
+      <p class="site-footer__meta">
+        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS app, not a service.
+      </p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/stereogram.js" defer></script>
+</body>
+</html>

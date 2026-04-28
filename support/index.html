@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Support — DepthWeaver</title>
+  <meta name="description" content="How to use DepthWeaver, viewing tips, FAQ, known limitations, and how to report a bug.">
+  <link rel="canonical" href="https://glandais.github.io/DepthWeaver/support/">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="theme-color" content="#0B0E14">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DepthWeaver — Support">
+  <meta property="og:description" content="How to use DepthWeaver, viewing tips, FAQ, and bug reporting.">
+  <meta property="og:url" content="https://glandais.github.io/DepthWeaver/support/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="wordmark" href="../">
+        <span>Depth<span style="font-style:italic;">Weaver</span></span>
+        <span class="wordmark__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../">Index</a>
+        <a href="../privacy/">Privacy</a>
+        <a href="../support/" aria-current="page">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container-narrow prose">
+    <header class="prose__header">
+      <span class="label label-accent">Document S-01</span>
+      <h1>Support</h1>
+      <p class="meta">DepthWeaver for iPhone · iOS 17+</p>
+    </header>
+
+    <section>
+      <p class="lead">
+        DepthWeaver is a small app maintained by one person. The fastest way to
+        get help, request a feature, or report a bug is the GitHub issue
+        tracker. Everything else lives below.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn--primary" href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">
+          Report an issue <span aria-hidden="true">→</span>
+        </a>
+        <a class="btn" href="mailto:gabriel.landais@gmail.com">Email the developer</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-num="01">Quick start</h2>
+      <ol>
+        <li><strong>Capture depth.</strong> Pick a source from the Generation screen — LiDAR (live), Photo (on-device AI), 3D Model (orbit camera), or one of the bundled height-map presets.</li>
+        <li><strong>Pick a pattern.</strong> Choose a built-in texture, import a photo as a tile, or tune one of the six procedural generators.</li>
+        <li><strong>Adjust.</strong> Slide DPI, depth strength, separation, and oversampling. Open <em>Depth Adjustment</em> to remap input/output ranges or denoise an 8-bit import.</li>
+        <li><strong>Share.</strong> Tap the result for a full-screen view, then export to Photos, Messages, AirDrop, or any app with a share sheet.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 data-num="02">How to actually see the stereogram</h2>
+      <p>
+        Autostereograms (Magic Eye images) need either of two viewing techniques:
+      </p>
+      <ul>
+        <li><strong>Parallel / divergent</strong> — focus past the screen, as if looking at something behind it. The image floats forward.</li>
+        <li><strong>Cross-eyed</strong> — cross your eyes slightly and the depth inverts (peaks become valleys).</li>
+      </ul>
+      <p>
+        If it does not click, try this: hold the iPhone close enough that the
+        screen blurs, then slowly move it away while keeping your gaze relaxed.
+        The hidden image will lock in. It gets easier with practice.
+      </p>
+    </section>
+
+    <section>
+      <h2 data-num="03">Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Why is the LiDAR option missing on my iPhone?</summary>
+          <p>LiDAR is only available on iPhone Pro models. On non-Pro iPhones the option is hidden because there is no sensor to read.</p>
+        </details>
+        <details>
+          <summary>My imported depth map looks banded or noisy. Can I fix it?</summary>
+          <p>Open <em>Depth Adjustment</em> and enable denoising. The denoiser targets 8-bit quantization (the typical cause of visible bands) and only runs on imported depth maps — LiDAR and AI-generated depths skip it because they have real precision to preserve.</p>
+        </details>
+        <details>
+          <summary>The output is blank or extremely thin.</summary>
+          <p>The stereogram algorithm requires the maximum separation to be smaller than the image width. Lower the depth strength, raise the DPI, or pick a smaller pattern, then try again.</p>
+        </details>
+        <details>
+          <summary>Where does the app save my generated images?</summary>
+          <p>Wherever you send them through the share sheet. DepthWeaver does not maintain its own gallery — by default, nothing is stored outside the app's session unless you explicitly save or share.</p>
+        </details>
+        <details>
+          <summary>Does the app work offline?</summary>
+          <p>Yes — entirely. There is no network code in DepthWeaver. The Depth Anything V2 model is bundled inside the app.</p>
+        </details>
+        <details>
+          <summary>Do you collect data?</summary>
+          <p>No. See the <a href="../privacy/">privacy policy</a>. There is no account, no analytics, no advertising.</p>
+        </details>
+        <details>
+          <summary>What languages is it available in?</summary>
+          <p>English and French. The language follows your iOS system setting.</p>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-num="04">Known limitations</h2>
+      <ul>
+        <li>LiDAR depth is captured at 256 × 192 in landscape from ARKit and rotated for portrait. Fine detail beyond that resolution will not appear.</li>
+        <li>The app uses <code>sceneDepth</code>; <code>smoothedSceneDepth</code> is not available, so live LiDAR frames may be slightly noisier than other ARKit apps.</li>
+        <li>Pathological combinations of depth strength and pattern size can produce an empty result. Lower the strength and retry.</li>
+        <li>3D model loading is limited to <code>.usdz</code>, <code>.usd</code>, <code>.obj</code>, and <code>.scn</code> — formats SceneKit can read natively.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-num="05">Reporting a bug</h2>
+      <p>
+        Open an issue on GitHub with: your iPhone model and iOS version, the
+        DepthWeaver version (visible in the iOS Settings app), and the steps to
+        reproduce. A screenshot or short screen recording is always welcome.
+      </p>
+      <dl class="contact">
+        <dt>Issues</dt>
+        <dd><a href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">github.com/glandais/DepthWeaver/issues</a></dd>
+        <dt>Email</dt>
+        <dd><a href="mailto:gabriel.landais@gmail.com">gabriel.landais@gmail.com</a></dd>
+        <dt>Source</dt>
+        <dd><a href="https://github.com/glandais/DepthWeaver" rel="noopener">github.com/glandais/DepthWeaver</a></dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="wordmark" href="../">
+        <span>Depth<span style="font-style:italic;">Weaver</span></span>
+        <span class="wordmark__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <a href="../privacy/">Privacy</a>
+        <a href="../support/">Support</a>
+        <a href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">Report an issue</a>
+        <a href="mailto:gabriel.landais@gmail.com">Contact</a>
+      </nav>
+      <p class="site-footer__meta">
+        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS app, not a service.
+      </p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
