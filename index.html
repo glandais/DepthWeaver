@@ -34,44 +34,34 @@
 
   <main>
     <section class="hero container">
-      <div class="hero__grid">
-        <div class="hero__head">
-          <span class="label">Issue 01 — iOS 17+</span>
-          <h1 class="display">Magic&nbsp;Eye,<br>made from<br><em>real depth.</em></h1>
-          <p class="lead hero__sub">
-            DepthWeaver turns LiDAR scans, on-device AI depth, and 3D models
-            into autostereograms you can stare into — woven on your iPhone,
-            never sent anywhere else.
-          </p>
+      <div class="hero__head">
+        <span class="label">Issue 01 — iOS 17+</span>
+        <h1 class="display">Magic&nbsp;Eye,<br>made from <em>real depth.</em></h1>
+        <p class="lead hero__sub">
+          DepthWeaver turns LiDAR scans, on-device AI depth, and 3D models
+          into autostereograms you can stare into — woven on your iPhone,
+          never sent anywhere else.
+        </p>
 
-          <dl class="hero__meta">
-            <div>
-              <dt>Sources</dt>
-              <dd>4</dd>
-            </div>
-            <div>
-              <dt>Patterns</dt>
-              <dd>6 + import</dd>
-            </div>
-            <div>
-              <dt>Network</dt>
-              <dd>0&nbsp;requests</dd>
-            </div>
-          </dl>
-
-          <div class="cta-row">
-            <a class="btn btn--primary" href="#features">Read the field guide <span aria-hidden="true">→</span></a>
-            <a class="btn" href="support/">Support</a>
+        <dl class="hero__meta">
+          <div>
+            <dt>Sources</dt>
+            <dd>4</dd>
           </div>
+          <div>
+            <dt>Patterns</dt>
+            <dd>6 + import</dd>
+          </div>
+          <div>
+            <dt>Network</dt>
+            <dd>0&nbsp;requests</dd>
+          </div>
+        </dl>
+
+        <div class="cta-row">
+          <a class="btn btn--primary" href="#features">Read the field guide <span aria-hidden="true">→</span></a>
+          <a class="btn" href="support/">Support</a>
         </div>
-
-        <figure class="stereogram" aria-label="A random-dot autostereogram. A sphere is hidden in the noise; cross or diverge your eyes to see it pop forward.">
-          <canvas role="img"></canvas>
-          <div class="stereogram__hint">
-            <span class="stereogram__caption">SIRDS — sphere</span>
-            <button type="button" class="stereogram__reveal" aria-pressed="false">Reveal</button>
-          </div>
-        </figure>
       </div>
     </section>
 
@@ -168,6 +158,5 @@
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/stereogram.js" defer></script>
 </body>
 </html>
