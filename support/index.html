@@ -56,7 +56,7 @@
     <section>
       <h2 data-num="01">Quick start</h2>
       <ol>
-        <li><strong>Capture depth.</strong> Pick a source from the Generation screen — LiDAR (live), Photo (on-device AI), 3D Model (orbit camera), or one of the bundled height-map presets.</li>
+        <li><strong>Capture depth.</strong> Pick a source from the Generation screen — LiDAR (live), Photo (on-device AI), 3D Model (orbit a bundled or imported file), Capture 3D (scan a real object with Object Capture), or one of the bundled height-map presets.</li>
         <li><strong>Pick a pattern.</strong> Choose a built-in texture, import a photo as a tile, or tune one of the six procedural generators.</li>
         <li><strong>Adjust.</strong> Slide DPI, depth strength, separation, and oversampling. Open <em>Depth Adjustment</em> to remap input/output ranges or denoise an 8-bit import.</li>
         <li><strong>Share.</strong> Tap the result for a full-screen view, then export to Photos, Messages, AirDrop, or any app with a share sheet.</li>
@@ -85,6 +85,18 @@
         <details>
           <summary>Why is the LiDAR option missing on my iPhone?</summary>
           <p>LiDAR is only available on iPhone Pro models. On non-Pro iPhones the option is hidden because there is no sensor to read.</p>
+        </details>
+        <details>
+          <summary>Why is the "Capture 3D" option missing?</summary>
+          <p>Object Capture requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro and later Pro models, or recent LiDAR iPad Pro) and iOS 17+. On unsupported devices the button is hidden. The Simulator cannot run Object Capture.</p>
+        </details>
+        <details>
+          <summary>Tips for a clean 3D scan?</summary>
+          <p>Use a small, opaque, matte object on a contrasting surface in even, diffuse light. Follow the orbit guides through three passes. Glossy, transparent, thin, or textureless objects (mirrors, glass, single-color plastic) are difficult for photogrammetry. Reconstruction runs after you finish capturing and may take a minute or two.</p>
+        </details>
+        <details>
+          <summary>Where are my captured 3D models stored?</summary>
+          <p>In a private "My captures" library inside the app sandbox. They show up alongside the bundled samples in the 3D Model picker. You can rename or delete them from a long-press menu. Nothing is uploaded.</p>
         </details>
         <details>
           <summary>My imported depth map looks banded or noisy. Can I fix it?</summary>
@@ -120,6 +132,7 @@
         <li>The app uses <code>sceneDepth</code>; <code>smoothedSceneDepth</code> is not available, so live LiDAR frames may be slightly noisier than other ARKit apps.</li>
         <li>Pathological combinations of depth strength and pattern size can produce an empty result. Lower the strength and retry.</li>
         <li>3D model loading is limited to <code>.usdz</code>, <code>.usd</code>, <code>.obj</code>, and <code>.scn</code> — formats SceneKit can read natively.</li>
+        <li>In-app 3D scanning needs Apple's Object Capture, which requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro+) on iOS 17+. The button is hidden on unsupported devices.</li>
       </ul>
     </section>
 

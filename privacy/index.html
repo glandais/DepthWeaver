@@ -70,10 +70,17 @@
       <h2 data-num="02">What stays on your device</h2>
       <p>
         Source images you select, depth maps captured from LiDAR or computed
-        from photos, 3D models you import, and stereograms you generate exist
-        only in the app's sandbox and in the destinations you choose (Photos,
-        Files, Messages, AirDrop, etc.). DepthWeaver has no mechanism to read
-        them back, sync them, or share them on your behalf.
+        from photos, 3D models you import or scan with the in-app Object Capture
+        feature, and stereograms you generate exist only in the app's sandbox
+        and in the destinations you choose (Photos, Files, Messages, AirDrop,
+        etc.). DepthWeaver has no mechanism to read them back, sync them, or
+        share them on your behalf.
+      </p>
+      <p>
+        Models you scan are saved to a private "My captures" library inside
+        the app sandbox so you can reuse them later. They never leave the
+        device. Delete a capture from the in-app library, or delete the app,
+        to remove it.
       </p>
       <p>
         The Depth Anything V2 machine-learning model is bundled inside the app
@@ -87,10 +94,14 @@
       <p>iOS will ask your consent before DepthWeaver can use the following:</p>
       <ul>
         <li>
-          <strong>Camera and LiDAR (via ARKit)</strong> — only when you open the
-          live LiDAR capture screen. Used to render the camera preview and read
-          the depth field. Frames are processed locally and discarded as soon as
-          you leave the screen, unless you explicitly capture one.
+          <strong>Camera and LiDAR (via ARKit and Object Capture)</strong> —
+          only when you open the live LiDAR capture screen or start an in-app
+          3D scan. Used to render the camera preview, read the depth field, and
+          collect the photographs Object Capture needs to reconstruct a model.
+          All frames and intermediate images are processed locally; live frames
+          are discarded as soon as you leave the screen unless you explicitly
+          capture one, and the photos taken during a 3D scan are deleted once
+          reconstruction finishes.
         </li>
         <li>
           <strong>Photo Library</strong> — only when you tap to import a photo
