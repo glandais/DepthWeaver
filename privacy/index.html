@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Privacy Policy — DepthWeaver</title>
-  <meta name="description" content="DepthWeaver collects no personal data. Everything runs on your iPhone. Full privacy policy.">
+  <meta name="description" content="DepthWeaver collects no personal data. Everything runs on your iPhone or Mac. Full privacy policy.">
   <link rel="canonical" href="https://glandais.github.io/DepthWeaver/privacy/">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <meta name="theme-color" content="#0B0E14">
   <meta property="og:type" content="article">
   <meta property="og:title" content="DepthWeaver — Privacy Policy">
-  <meta property="og:description" content="DepthWeaver collects no personal data. Everything runs on your iPhone.">
+  <meta property="og:description" content="DepthWeaver collects no personal data. Everything runs on your iPhone or Mac.">
   <meta property="og:url" content="https://glandais.github.io/DepthWeaver/privacy/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
     <header class="prose__header">
       <span class="label label-accent">Document P-01</span>
       <h1>Privacy Policy</h1>
-      <p class="meta">Effective 2026-04-28 · DepthWeaver for iPhone</p>
+      <p class="meta">Effective 2026-05-04 · DepthWeaver for iPhone and Mac</p>
     </header>
 
     <section>
@@ -43,7 +43,7 @@
         DepthWeaver collects no personal data. There is no account, no server,
         no analytics, no advertising network, and no third-party SDK that
         transmits information about you. Everything the app does — capture,
-        depth inference, stereogram generation — happens on your iPhone.
+        depth inference, stereogram generation — happens on your iPhone or Mac.
       </p>
     </section>
 
@@ -77,41 +77,46 @@
         share them on your behalf.
       </p>
       <p>
-        Models you scan are saved to a private "My captures" library inside
-        the app sandbox so you can reuse them later. They never leave the
-        device. Delete a capture from the in-app library, or delete the app,
-        to remove it.
+        Models you scan with Object Capture (iPhone Pro only) are saved to a
+        private "My captures" library inside the app sandbox so you can reuse
+        them later. They never leave the device. Delete a capture from the
+        in-app library, or delete the app, to remove it.
       </p>
       <p>
         The Depth Anything V2 machine-learning model is bundled inside the app
-        binary. Inference runs on your device's Neural Engine. No image you
-        process is ever transmitted off-device by DepthWeaver.
+        binary. Inference runs on your device's Neural Engine on iPhone, or on
+        the GPU on Mac. No image you process is ever transmitted off-device by
+        DepthWeaver.
       </p>
     </section>
 
     <section>
       <h2 data-num="03">System permissions</h2>
-      <p>iOS will ask your consent before DepthWeaver can use the following:</p>
+      <p>The system will ask your consent before DepthWeaver can use the following:</p>
       <ul>
         <li>
-          <strong>Camera and LiDAR (via ARKit and Object Capture)</strong> —
-          only when you open the live LiDAR capture screen or start an in-app
+          <strong>Camera and LiDAR (via ARKit and Object Capture, iPhone only)</strong>
+          — only when you open the live LiDAR capture screen or start an in-app
           3D scan. Used to render the camera preview, read the depth field, and
           collect the photographs Object Capture needs to reconstruct a model.
           All frames and intermediate images are processed locally; live frames
           are discarded as soon as you leave the screen unless you explicitly
           capture one, and the photos taken during a 3D scan are deleted once
-          reconstruction finishes.
+          reconstruction finishes. The Mac app does not request camera access
+          because these capture flows are not available on macOS.
         </li>
         <li>
-          <strong>Photo Library</strong> — only when you tap to import a photo
-          or pattern, or to save a generated stereogram. DepthWeaver uses the
-          system picker, so it sees only the items you choose.
+          <strong>Photo Library / file access</strong> — only when you tap to
+          import a photo or pattern, open a 3D model, or save a generated
+          stereogram. DepthWeaver uses the system picker (and on Mac, the
+          standard open / save panels with sandboxed scoped access), so it sees
+          only the items you choose.
         </li>
       </ul>
       <p>
-        You can revoke either permission at any time in iOS
-        <em>Settings → DepthWeaver</em>.
+        You can revoke either permission at any time in
+        <em>Settings → DepthWeaver</em> on iOS, or
+        <em>System Settings → Privacy &amp; Security</em> on macOS.
       </p>
     </section>
 
@@ -144,7 +149,7 @@
         Because DepthWeaver does not collect personal data, there is no data
         for us to access, rectify, port, restrict, or erase on your behalf. To
         delete everything DepthWeaver has stored about you, delete the app —
-        iOS removes its sandbox.
+        iOS and macOS remove its sandbox.
       </p>
     </section>
 
@@ -184,7 +189,7 @@
         <a href="mailto:gabriel.landais@gmail.com">Contact</a>
       </nav>
       <p class="site-footer__meta">
-        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS app, not a service.
+        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS and macOS app, not a service.
       </p>
     </div>
   </footer>

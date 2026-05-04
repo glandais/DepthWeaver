@@ -35,7 +35,7 @@
     <header class="prose__header">
       <span class="label label-accent">Document S-01</span>
       <h1>Support</h1>
-      <p class="meta">DepthWeaver for iPhone · iOS 17+</p>
+      <p class="meta">DepthWeaver for iPhone and Mac · iOS 17+ · macOS 14+</p>
     </header>
 
     <section>
@@ -56,10 +56,10 @@
     <section>
       <h2 data-num="01">Quick start</h2>
       <ol>
-        <li><strong>Capture depth.</strong> Pick a source from the Generation screen — LiDAR (live), Photo (on-device AI), 3D Model (orbit a bundled or imported file), Capture 3D (scan a real object with Object Capture), or one of the bundled height-map presets.</li>
-        <li><strong>Pick a pattern.</strong> Choose a built-in texture, import a photo as a tile, or tune one of the six procedural generators.</li>
+        <li><strong>Capture depth.</strong> Pick a source — on iPhone, the Generation screen offers LiDAR (live), Photo (on-device AI), 3D Model (orbit a bundled or imported file), Capture 3D (scan a real object with Object Capture), or a bundled height-map preset. On Mac, the inspector pane offers the same sources minus LiDAR and Object Capture (no camera-based capture on macOS).</li>
+        <li><strong>Pick a pattern.</strong> Choose a built-in texture, import an image as a tile, or tune one of the six procedural generators.</li>
         <li><strong>Adjust.</strong> Slide DPI, depth strength, separation, and oversampling. Open <em>Depth Adjustment</em> to remap input/output ranges or denoise an 8-bit import.</li>
-        <li><strong>Share.</strong> Tap the result for a full-screen view, then export to Photos, Messages, AirDrop, or any app with a share sheet.</li>
+        <li><strong>Share.</strong> Tap the result for a full-screen view, then export to Photos, Messages, AirDrop, or any app with a share sheet on iPhone. On Mac, use <em>File → Save</em> (⌘S) for a PNG, <em>Edit → Copy</em> (⌘⇧C) for the pasteboard, or the standard share menu.</li>
       </ol>
     </section>
 
@@ -73,9 +73,10 @@
         <li><strong>Cross-eyed</strong> — cross your eyes slightly and the depth inverts (peaks become valleys).</li>
       </ul>
       <p>
-        If it does not click, try this: hold the iPhone close enough that the
-        screen blurs, then slowly move it away while keeping your gaze relaxed.
-        The hidden image will lock in. It gets easier with practice.
+        If it does not click, try this: hold the device close enough (or sit
+        close to your Mac display) that the screen blurs, then slowly move
+        away while keeping your gaze relaxed. The hidden image will lock in.
+        It gets easier with practice.
       </p>
     </section>
 
@@ -83,12 +84,16 @@
       <h2 data-num="03">Frequently asked questions</h2>
       <div class="faq">
         <details>
-          <summary>Why is the LiDAR option missing on my iPhone?</summary>
-          <p>LiDAR is only available on iPhone Pro models. On non-Pro iPhones the option is hidden because there is no sensor to read.</p>
+          <summary>Does DepthWeaver run on Mac?</summary>
+          <p>Yes — there is a native macOS app (macOS 14+) built from the same SwiftUI codebase. The Mac UI is a document-style window with a collapsible inspector, standard menu commands (Open ⌘O, Save ⌘S, Copy ⌘⇧C, Toggle Inspector ⌘⌥I), and PNG export through the standard save panel. LiDAR live capture and Object Capture scans stay on iPhone where the hardware lives; everything else (AI depth, 3D model loading, presets, denoising, the Metal renderer) works identically on both.</p>
+        </details>
+        <details>
+          <summary>Why is the LiDAR option missing on my iPhone (or Mac)?</summary>
+          <p>LiDAR is only available on iPhone Pro models. On non-Pro iPhones the option is hidden because there is no sensor to read. The Mac app does not offer LiDAR live capture at all.</p>
         </details>
         <details>
           <summary>Why is the "Capture 3D" option missing?</summary>
-          <p>Object Capture requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro and later Pro models, or recent LiDAR iPad Pro) and iOS 17+. On unsupported devices the button is hidden. The Simulator cannot run Object Capture.</p>
+          <p>Object Capture requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro and later Pro models, or recent LiDAR iPad Pro) and iOS 17+. On unsupported devices the button is hidden. The Mac app does not include Object Capture; load a pre-made <code>.usdz</code> or other 3D file instead. The Simulator cannot run Object Capture.</p>
         </details>
         <details>
           <summary>Tips for a clean 3D scan?</summary>
@@ -107,8 +112,12 @@
           <p>The stereogram algorithm requires the maximum separation to be smaller than the image width. Lower the depth strength, raise the DPI, or pick a smaller pattern, then try again.</p>
         </details>
         <details>
+          <summary>Is the GPU used for rendering?</summary>
+          <p>Yes. The full stereogram pipeline (link-based hidden-surface removal, both centre-outwards pattern fills, OKLab gap fill, and OKLab oversampling downscale) runs as a Metal compute kernel — one thread per output row. If Metal is unavailable for any reason, the app transparently falls back to a parallel CPU path that produces the same output.</p>
+        </details>
+        <details>
           <summary>Where does the app save my generated images?</summary>
-          <p>Wherever you send them through the share sheet. DepthWeaver does not maintain its own gallery — by default, nothing is stored outside the app's session unless you explicitly save or share.</p>
+          <p>On iPhone, wherever you send them through the share sheet — DepthWeaver does not maintain its own gallery. On Mac, use <em>File → Save</em> (⌘S) to write a PNG to disk, <em>Edit → Copy</em> (⌘⇧C) to put it on the pasteboard, or the share menu. By default, nothing is stored outside the app's session unless you explicitly save or share.</p>
         </details>
         <details>
           <summary>Does the app work offline?</summary>
@@ -120,7 +129,7 @@
         </details>
         <details>
           <summary>What languages is it available in?</summary>
-          <p>English and French. The language follows your iOS system setting.</p>
+          <p>English and French. The language follows your iOS or macOS system setting.</p>
         </details>
       </div>
     </section>
@@ -133,14 +142,17 @@
         <li>Pathological combinations of depth strength and pattern size can produce an empty result. Lower the strength and retry.</li>
         <li>3D model loading is limited to <code>.usdz</code>, <code>.usd</code>, <code>.obj</code>, and <code>.scn</code> — formats SceneKit can read natively.</li>
         <li>In-app 3D scanning needs Apple's Object Capture, which requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro+) on iOS 17+. The button is hidden on unsupported devices.</li>
+        <li>The macOS app does not include LiDAR live capture or Object Capture (these flows are gated behind <code>#if os(iOS)</code>). On Mac, capture depth from photos, presets, or 3D models loaded from disk.</li>
+        <li>Rendering uses Metal by default; if the Metal kernel can't be loaded, the app falls back to a slower parallel CPU path. Both produce numerically aligned output.</li>
       </ul>
     </section>
 
     <section>
       <h2 data-num="05">Reporting a bug</h2>
       <p>
-        Open an issue on GitHub with: your iPhone model and iOS version, the
-        DepthWeaver version (visible in the iOS Settings app), and the steps to
+        Open an issue on GitHub with: your device model and OS version (iPhone
+        + iOS, or Mac model + macOS), the DepthWeaver version (in the iOS
+        Settings app, or <em>DepthWeaver → About</em> on Mac), and the steps to
         reproduce. A screenshot or short screen recording is always welcome.
       </p>
       <dl class="contact">
@@ -167,7 +179,7 @@
         <a href="mailto:gabriel.landais@gmail.com">Contact</a>
       </nav>
       <p class="site-footer__meta">
-        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS app, not a service.
+        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS and macOS app, not a service.
       </p>
     </div>
   </footer>

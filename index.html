@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>DepthWeaver — Magic Eye autostereograms from real-world depth</title>
-  <meta name="description" content="DepthWeaver is an iPhone app that turns LiDAR scans, on-device AI depth, 3D models, and in-app Object Capture scans into Magic Eye autostereograms. Private by design.">
+  <meta name="description" content="DepthWeaver is a native iPhone and Mac app that turns LiDAR scans, on-device AI depth, 3D models, and in-app Object Capture scans into Magic Eye autostereograms. GPU-accelerated, private by design.">
   <link rel="canonical" href="https://glandais.github.io/DepthWeaver/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="theme-color" content="#0B0E14">
   <meta property="og:type" content="website">
   <meta property="og:title" content="DepthWeaver — Magic Eye, made from real depth.">
-  <meta property="og:description" content="LiDAR, on-device AI, 3D models, and in-app Object Capture scans — woven into autostereograms you can stare into.">
+  <meta property="og:description" content="LiDAR, on-device AI, 3D models, and in-app Object Capture scans — woven into autostereograms on iPhone and Mac, GPU-accelerated, never sent anywhere.">
   <meta property="og:url" content="https://glandais.github.io/DepthWeaver/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,15 +35,20 @@
   <main>
     <section class="hero container">
       <div class="hero__head">
-        <span class="label">Issue 01 — iOS 17+</span>
+        <span class="label">Issue 01 — iOS 17+ · macOS 14+</span>
         <h1 class="display">Magic&nbsp;Eye,<br>made from <em>real depth.</em></h1>
         <p class="lead hero__sub">
           DepthWeaver turns LiDAR scans, on-device AI depth, 3D models, and
-          objects you scan with your iPhone into autostereograms you can stare
-          into — woven on your device, never sent anywhere else.
+          objects you scan into autostereograms you can stare into — woven on
+          your iPhone or Mac with a Metal compute kernel, never sent anywhere
+          else.
         </p>
 
         <dl class="hero__meta">
+          <div>
+            <dt>Platforms</dt>
+            <dd>iPhone · Mac</dd>
+          </div>
           <div>
             <dt>Sources</dt>
             <dd>4</dd>
@@ -51,6 +56,10 @@
           <div>
             <dt>Patterns</dt>
             <dd>6 + import</dd>
+          </div>
+          <div>
+            <dt>Renderer</dt>
+            <dd>Metal&nbsp;GPU</dd>
           </div>
           <div>
             <dt>Network</dt>
@@ -75,25 +84,25 @@
         <article class="feature">
           <div class="feature__num">A — Live LiDAR</div>
           <h3 class="feature__title">Point, freeze, weave.</h3>
-          <p>On iPhone Pro, the LiDAR scanner streams a real-time depth field. Tap to freeze a frame and feed it straight into the generator.</p>
+          <p>On iPhone Pro, the LiDAR scanner streams a real-time depth field. Tap to freeze a frame and feed it straight into the generator. (iPhone only — there is no LiDAR on Mac.)</p>
         </article>
 
         <article class="feature">
           <div class="feature__num">B — On-device AI</div>
           <h3 class="feature__title">Depth from any photo.</h3>
-          <p>Depth Anything V2 runs on the Neural Engine. Pick a picture, get a depth map. Nothing uploads — the model is bundled in the app.</p>
+          <p>Depth Anything V2 runs on the Neural Engine on iPhone, on the GPU on Mac. Pick a picture, get a depth map. Nothing uploads — the model is bundled in the app.</p>
         </article>
 
         <article class="feature">
           <div class="feature__num">C — 3D models</div>
           <h3 class="feature__title">USDZ, USD, OBJ, SCN.</h3>
-          <p>Drop a 3D file in, orbit the camera, capture the view-space depth. Bundled samples ship with the app to play with right away.</p>
+          <p>Drop a 3D file in, orbit the camera, capture the view-space depth. Bundled samples ship with the app to play with right away. Available on both iPhone and Mac.</p>
         </article>
 
         <article class="feature">
           <div class="feature__num">D — Object Capture</div>
           <h3 class="feature__title">Scan a real object in three orbits.</h3>
-          <p>Apple's guided photogrammetry, embedded in the app. Walk around a small object, let RealityKit reconstruct a USDZ on device, then weave its depth. Saved to your private "My captures" library — rename, reuse, delete.</p>
+          <p>Apple's guided photogrammetry, embedded in the app. Walk around a small object, let RealityKit reconstruct a USDZ on device, then weave its depth. Saved to your private "My captures" library — rename, reuse, delete. (iPhone Pro only.)</p>
         </article>
       </div>
     </section>
@@ -127,11 +136,14 @@
           redraws as you slide.
         </p>
         <p>
-          Under the hood: a parallelised version of the Thimbleby–Inglis–Witten
-          autostereogram algorithm with W. A. Steer's link-based hidden-surface
-          refinement. Powered by ARKit, Core ML, SceneKit, Metal, and Core Image.
-          Output is upscaled so the minimum dimension is at least 960&nbsp;px —
-          print-ready or share-ready.
+          Under the hood: W. A. Steer's extension of the Thimbleby–Inglis–Witten
+          autostereogram algorithm — link-based hidden-surface refinement,
+          centre-outwards bitmapped patterns, OKLab gap fill and oversampling.
+          The whole pipeline runs as a Metal compute kernel, one thread per
+          output row, with a parallel CPU fallback when Metal is unavailable.
+          Powered by ARKit, Object Capture, Core ML, SceneKit, Metal, and Core
+          Image. Output is upscaled so the minimum dimension is at least
+          960&nbsp;px — print-ready or share-ready.
         </p>
       </div>
     </section>
@@ -139,6 +151,25 @@
     <section class="section container">
       <header class="section__head">
         <span class="section__num">§ 04</span>
+        <h2 class="section__title">Native on iPhone and Mac.</h2>
+      </header>
+
+      <div class="container-narrow" style="padding-inline: 0;">
+        <p class="lead">
+          One SwiftUI codebase, two first-class apps. iPhone uses a navigation
+          stack with pushed capture screens; Mac uses a document-style window
+          with a collapsible inspector, standard menu commands (Open ⌘O, Save
+          ⌘S, Copy ⌘⇧C, Toggle Inspector ⌘⌥I), and a <code>.fileExporter</code>
+          PNG save. LiDAR live capture and Object Capture scans stay on iPhone
+          where the hardware lives; everything else — AI depth, 3D models,
+          presets, denoising, the Metal renderer — works identically on both.
+        </p>
+      </div>
+    </section>
+
+    <section class="section container">
+      <header class="section__head">
+        <span class="section__num">§ 05</span>
         <h2 class="section__title">Private by design.</h2>
       </header>
 
@@ -147,7 +178,7 @@
         <p>
           Everything runs on device. No account, no upload, no analytics, no
           third-party SDKs, no ads. Your photos and 3D scans never leave your
-          iPhone. Read the
+          iPhone or Mac. Read the
           <a href="privacy/">privacy policy</a>.
         </p>
       </div>
@@ -167,7 +198,7 @@
         <a href="mailto:gabriel.landais@gmail.com">Contact</a>
       </nav>
       <p class="site-footer__meta">
-        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS app, not a service.
+        © <span id="year">2026</span> Gabriel Landais — DepthWeaver is an iOS and macOS app, not a service.
       </p>
     </div>
   </footer>

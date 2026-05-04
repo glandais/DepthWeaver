@@ -274,7 +274,7 @@ main { flex: 1 0 auto; }
 }
 .hero__meta {
   display: grid;
-  grid-template-columns: repeat(3, max-content);
+  grid-template-columns: repeat(auto-fit, max-content);
   gap: var(--s-6);
   margin-top: var(--s-7);
   padding-top: var(--s-5);
