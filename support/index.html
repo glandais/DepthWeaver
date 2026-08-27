@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Support — DepthWeaver</title>
-  <meta name="description" content="How to use DepthWeaver, viewing tips, FAQ, known limitations, and how to report a bug.">
+  <meta name="description" content="How to use DepthWeaver 1.2, the “Learn to see it” trainer, viewing tips, FAQ, known limitations, and how to report a bug.">
   <link rel="canonical" href="https://glandais.github.io/DepthWeaver/support/">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <meta name="theme-color" content="#0B0E14">
@@ -35,7 +35,7 @@
     <header class="prose__header">
       <span class="label label-accent">Document S-01</span>
       <h1>Support</h1>
-      <p class="meta">DepthWeaver for iPhone and Mac · iOS 17+ · macOS 14+</p>
+      <p class="meta">DepthWeaver 1.2 for iPhone and Mac · iOS 17+ · macOS 14+</p>
     </header>
 
     <section>
@@ -46,7 +46,7 @@
       </p>
 
       <div class="cta-row">
-        <a class="btn btn--primary" href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">
+        <a class="btn btn--primary" href="https://github.com/glandais/DepthWeaverApp/issues" rel="noopener">
           Report an issue <span aria-hidden="true">→</span>
         </a>
         <a class="btn" href="mailto:gabriel.landais@gmail.com">Email the developer</a>
@@ -56,10 +56,10 @@
     <section>
       <h2 data-num="01">Quick start</h2>
       <ol>
-        <li><strong>Capture depth.</strong> Pick a source — on iPhone, the Generation screen offers LiDAR (live), Photo (on-device AI), 3D Model (orbit a bundled or imported file), Capture 3D (scan a real object with Object Capture), or a bundled height-map preset. On Mac, the inspector pane offers the same sources minus LiDAR and Object Capture (no camera-based capture on macOS).</li>
-        <li><strong>Pick a pattern.</strong> Choose a built-in texture, import an image as a tile, or tune one of the six procedural generators.</li>
-        <li><strong>Adjust.</strong> Slide DPI, depth strength, separation, and oversampling. Open <em>Depth Adjustment</em> to remap input/output ranges or denoise an 8-bit import.</li>
-        <li><strong>Share.</strong> Tap the result for a full-screen view, then export to Photos, Messages, AirDrop, or any app with a share sheet on iPhone. On Mac, use <em>File → Save</em> (⌘S) for a PNG, <em>Edit → Copy</em> (⌘⇧C) for the pasteboard, or the standard share menu.</li>
+        <li><strong>Capture depth.</strong> On iPhone, open the <em>Depth</em> tool in the drawer and tap <em>Change depth source</em> — LiDAR (live), Photo (on-device AI), 3D Model (orbit a bundled or imported file), Capture 3D (scan a real object with Object Capture), or a bundled height-map example. A live 3D point cloud shows you the depth you just captured. On Mac, the inspector pane offers the same sources minus LiDAR and Object Capture (no camera-based capture on macOS).</li>
+        <li><strong>Pick a pattern.</strong> In the <em>Pattern</em> tool, choose a built-in texture, import an image from your library as a tile, or tune one of the six procedural generators.</li>
+        <li><strong>Tune it.</strong> Start from a preset — <em>Soft</em>, <em>Standard</em> or <em>Punchy</em> — then move <em>Depth</em> (how far it pops), <em>Spread</em> (eye separation) and <em>Smoothness</em> (oversampling). Resolution (DPI), depth-range remapping and denoising live under <em>Advanced</em>.</li>
+        <li><strong>Share.</strong> The canvas is the result — pinch to zoom, tap to hide the controls, tap again for full screen. Save to Photos or send it through the share sheet on iPhone. On Mac, use <em>File → Save</em> (⌘S) for a PNG, <em>Edit → Copy</em> (⌘⇧C) for the pasteboard, or the standard share menu.</li>
       </ol>
     </section>
 
@@ -73,16 +73,40 @@
         <li><strong>Cross-eyed</strong> — cross your eyes slightly and the depth inverts (peaks become valleys).</li>
       </ul>
       <p>
-        If it does not click, try this: hold the device close enough (or sit
-        close to your Mac display) that the screen blurs, then slowly move
-        away while keeping your gaze relaxed. The hidden image will lock in.
-        It gets easier with practice.
+        On iPhone, the fastest way in is the built-in <strong>“Learn to see
+        it”</strong> trainer: tap the <strong>?</strong> button on the canvas or
+        the result screen. It gives one instruction at a time — hold it at arm's
+        length, look through the screen, let the dots double up — over a live
+        stereogram, and steps up the difficulty each time you say you saw it.
+        It is also offered automatically on first launch.
+      </p>
+      <p>
+        Without it: hold the device close enough (or sit close to your Mac
+        display) that the screen blurs, then slowly move away while keeping your
+        gaze relaxed. The hidden image will lock in. It gets easier with
+        practice.
       </p>
     </section>
 
     <section>
       <h2 data-num="03">Frequently asked questions</h2>
       <div class="faq">
+        <details>
+          <summary>I still can't see the hidden image. Where do I start?</summary>
+          <p>Run the <strong>“Learn to see it”</strong> trainer on iPhone — the <strong>?</strong> button on the canvas or the result screen. It walks you through the technique one step at a time and ramps up the difficulty as you go, so you are not fighting a hard stereogram on your first attempt. If a round defeats you, tap “Still nothing” and it eases back off.</p>
+        </details>
+        <details>
+          <summary>Where did the old controls go? (Updating from 1.1)</summary>
+          <p>1.2 rebuilt the iPhone app around the image. The stereogram now fills the screen and every control lives in the glass drawer at the bottom: <em>Depth</em> for the source and depth adjustment, <em>Pattern</em> for textures and procedural generators, <em>Tune</em> for presets and sliders. Pinch to zoom the canvas, tap it to hide the drawer, tap again for a full-screen view. Nothing was removed — DPI, depth ranges and denoising sit under <em>Advanced</em> in the Tune tool. The Mac app is unchanged apart from the new 3D depth preview.</p>
+        </details>
+        <details>
+          <summary>What do Soft, Standard and Punchy change?</summary>
+          <p>They set depth strength, eye separation and oversampling together, so one tap gets you a sensible result. They deliberately leave resolution (DPI) alone, so changing DPI under <em>Advanced</em> does not knock you out of a preset. Move any of the three sliders yourself and the preset row simply shows <em>Custom</em>.</p>
+        </details>
+        <details>
+          <summary>What is the 3D view on the depth screen?</summary>
+          <p>A live point cloud of the depth map you just captured, rendered from your current depth adjustment. It is there so you can tell a good capture from a bad one before you weave it — if the shape looks wrong in 3D, the stereogram will be wrong too. Available on iPhone and Mac.</p>
+        </details>
         <details>
           <summary>Does DepthWeaver run on Mac?</summary>
           <p>Yes — there is a native macOS app (macOS 14+) built from the same SwiftUI codebase. The Mac UI is a document-style window with a collapsible inspector, standard menu commands (Open ⌘O, Save ⌘S, Copy ⌘⇧C, Toggle Inspector ⌘⌥I), and PNG export through the standard save panel. LiDAR live capture and Object Capture scans stay on iPhone where the hardware lives; everything else (AI depth, 3D model loading, presets, denoising, the Metal renderer) works identically on both.</p>
@@ -157,11 +181,11 @@
       </p>
       <dl class="contact">
         <dt>Issues</dt>
-        <dd><a href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">github.com/glandais/DepthWeaver/issues</a></dd>
+        <dd><a href="https://github.com/glandais/DepthWeaverApp/issues" rel="noopener">github.com/glandais/DepthWeaverApp/issues</a></dd>
         <dt>Email</dt>
         <dd><a href="mailto:gabriel.landais@gmail.com">gabriel.landais@gmail.com</a></dd>
         <dt>Source</dt>
-        <dd><a href="https://github.com/glandais/DepthWeaver" rel="noopener">github.com/glandais/DepthWeaver</a></dd>
+        <dd><a href="https://github.com/glandais/DepthWeaverApp" rel="noopener">github.com/glandais/DepthWeaverApp</a></dd>
       </dl>
     </section>
   </main>
@@ -175,7 +199,7 @@
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="../privacy/">Privacy</a>
         <a href="../support/">Support</a>
-        <a href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">Report an issue</a>
+        <a href="https://github.com/glandais/DepthWeaverApp/issues" rel="noopener">Report an issue</a>
         <a href="mailto:gabriel.landais@gmail.com">Contact</a>
       </nav>
       <p class="site-footer__meta">

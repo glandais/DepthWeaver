@@ -35,7 +35,7 @@
   <main>
     <section class="hero container">
       <div class="hero__head">
-        <span class="label">Issue 01 — iOS 17+ · macOS 14+</span>
+        <span class="label">Version 1.2 — iOS 17+ · macOS 14+</span>
         <h1 class="display">Magic&nbsp;Eye,<br>made from <em>real depth.</em></h1>
         <p class="lead hero__sub">
           DepthWeaver turns LiDAR scans, on-device AI depth, 3D models, and
@@ -68,15 +68,60 @@
         </dl>
 
         <div class="cta-row">
-          <a class="btn btn--primary" href="#features">Read the field guide <span aria-hidden="true">→</span></a>
+          <a class="btn btn--primary" href="#whats-new">New in 1.2 <span aria-hidden="true">→</span></a>
+          <a class="btn" href="#features">Read the field guide</a>
           <a class="btn" href="support/">Support</a>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="features">
+    <section class="section container" id="whats-new">
       <header class="section__head">
         <span class="section__num">§ 01</span>
+        <h2 class="section__title">New in 1.2 — the iPhone app, rebuilt.</h2>
+      </header>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature__num">01 — Canvas first</div>
+          <h3 class="feature__title">The stereogram fills the screen.</h3>
+          <p>The main screen is now the image itself, edge to edge. Controls live in a frosted-glass drawer that expands out of a floating bar — Depth, Pattern, Tune — and slides away when you just want to look. Pinch to zoom, tap to hide.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__num">02 — Learn to see it</div>
+          <h3 class="feature__title">A trainer, not a wall of tips.</h3>
+          <p>One instruction at a time — hold it at arm's length, look through the screen, let the dots double up — with a progress arc around a live stereogram. Each round you clear gets a little harder. Offered on first launch, and always behind the “?” button.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__num">03 — Presets</div>
+          <h3 class="feature__title">Soft, Standard, Punchy.</h3>
+          <p>One tap for a good-looking result, then fine-tune. The sliders speak plain words now — Depth, Spread, Smoothness, with the technical term as a hint — and DPI, depth ranges and denoising move behind Advanced.</p>
+        </article>
+
+        <article class="feature">
+          <div class="feature__num">04 — Depth in 3D</div>
+          <h3 class="feature__title">See what you captured.</h3>
+          <p>The depth source screen shows a live 3D point cloud of the depth you just captured, so you know what you are working with before you weave it. On iPhone and Mac both.</p>
+        </article>
+      </div>
+
+      <div class="container-narrow" style="padding-inline: 0; margin-top: var(--s-8);">
+        <p>
+          Also in 1.2: AI depth estimation no longer blocks the interface, so the
+          app stays responsive while it thinks; the depth source screen is
+          re-ranked around what people actually reach for first; and the 3D model
+          screen, the full-screen result and the depth adjustment controls have
+          all been rebuilt to match — plus a pile of fixes. The Mac app keeps its
+          document-style inspector layout and picks up the 3D depth preview.
+        </p>
+      </div>
+    </section>
+
+    <section class="section container" id="features">
+      <header class="section__head">
+        <span class="section__num">§ 02</span>
         <h2 class="section__title">Four ways to capture depth.</h2>
       </header>
 
@@ -109,7 +154,7 @@
 
     <section class="section container">
       <header class="section__head">
-        <span class="section__num">§ 02</span>
+        <span class="section__num">§ 03</span>
         <h2 class="section__title">Six ways to dress it.</h2>
       </header>
 
@@ -124,7 +169,7 @@
 
     <section class="section container">
       <header class="section__head">
-        <span class="section__num">§ 03</span>
+        <span class="section__num">§ 04</span>
         <h2 class="section__title">Tune every knob.</h2>
       </header>
 
@@ -150,14 +195,15 @@
 
     <section class="section container">
       <header class="section__head">
-        <span class="section__num">§ 04</span>
+        <span class="section__num">§ 05</span>
         <h2 class="section__title">Native on iPhone and Mac.</h2>
       </header>
 
       <div class="container-narrow" style="padding-inline: 0;">
         <p class="lead">
-          One SwiftUI codebase, two first-class apps. iPhone uses a navigation
-          stack with pushed capture screens; Mac uses a document-style window
+          One SwiftUI codebase, two first-class apps. iPhone is canvas-first —
+          a full-bleed stereogram with a glass tool drawer over it; Mac uses a
+          document-style window
           with a collapsible inspector, standard menu commands (Open ⌘O, Save
           ⌘S, Copy ⌘⇧C, Toggle Inspector ⌘⌥I), and a <code>.fileExporter</code>
           PNG save. LiDAR live capture and Object Capture scans stay on iPhone
@@ -169,7 +215,7 @@
 
     <section class="section container">
       <header class="section__head">
-        <span class="section__num">§ 05</span>
+        <span class="section__num">§ 06</span>
         <h2 class="section__title">Private by design.</h2>
       </header>
 
@@ -194,7 +240,7 @@
       <nav class="site-footer__nav" aria-label="Footer">
         <a href="privacy/">Privacy</a>
         <a href="support/">Support</a>
-        <a href="https://github.com/glandais/DepthWeaver/issues" rel="noopener">Report an issue</a>
+        <a href="https://github.com/glandais/DepthWeaverApp/issues" rel="noopener">Report an issue</a>
         <a href="mailto:gabriel.landais@gmail.com">Contact</a>
       </nav>
       <p class="site-footer__meta">
