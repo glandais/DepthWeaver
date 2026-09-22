@@ -538,3 +538,11 @@ main { flex: 1 0 auto; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ---------- footer: other apps ---------- */
+.site-footer__others { margin-top: 0; }
+.site-footer__others a {
+  color: var(--bone-muted);
+  text-decoration: none;
+}
+.site-footer__others a:hover { color: var(--bone); }
