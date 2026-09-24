@@ -36,7 +36,7 @@
     <header class="prose__header">
       <span class="label label-accent">Document S-01</span>
       <h1>Support</h1>
-      <p class="meta">DepthWeaver 1.2 for iPhone and Mac · iOS 17+ · macOS 14+</p>
+      <p class="meta">DepthWeaver 1.2 for iPhone, iPad and Mac · iOS 18+ · macOS 15+ (Apple silicon)</p>
     </header>
 
     <section>
@@ -110,7 +110,7 @@
         </details>
         <details>
           <summary>Does DepthWeaver run on Mac?</summary>
-          <p>Yes — there is a native macOS app (macOS 14+) built from the same SwiftUI codebase. The Mac UI is a document-style window with a collapsible inspector, standard menu commands (Open ⌘O, Save ⌘S, Copy ⌘⇧C, Toggle Inspector ⌘⌥I), and PNG export through the standard save panel. LiDAR live capture and Object Capture scans stay on iPhone where the hardware lives; everything else (AI depth, 3D model loading, presets, denoising, the Metal renderer) works identically on both.</p>
+          <p>Yes — there is a native macOS app (macOS 15+, Macs with Apple silicon) built from the same SwiftUI codebase. The Mac UI is a document-style window with a collapsible inspector, standard menu commands (Open ⌘O, Save ⌘S, Copy ⌘⇧C, Toggle Inspector ⌘⌥I), and PNG export through the standard save panel. LiDAR live capture and Object Capture scans stay on iPhone where the hardware lives; everything else (AI depth, 3D model loading, presets, denoising, the Metal renderer) works identically on both.</p>
         </details>
         <details>
           <summary>Why is the LiDAR option missing on my iPhone (or Mac)?</summary>
@@ -118,7 +118,7 @@
         </details>
         <details>
           <summary>Why is the "Capture 3D" option missing?</summary>
-          <p>Object Capture requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro and later Pro models, or recent LiDAR iPad Pro) and iOS 17+. On unsupported devices the button is hidden. The Mac app does not include Object Capture; load a pre-made <code>.usdz</code> or other 3D file instead. The Simulator cannot run Object Capture.</p>
+          <p>Object Capture requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro and later Pro models, or recent LiDAR iPad Pro) and iOS 18+. On unsupported devices the button is hidden. The Mac app does not include Object Capture; load a pre-made <code>.usdz</code> or other 3D file instead. The Simulator cannot run Object Capture.</p>
         </details>
         <details>
           <summary>Tips for a clean 3D scan?</summary>
@@ -166,7 +166,7 @@
         <li>The app uses <code>sceneDepth</code>; <code>smoothedSceneDepth</code> is not available, so live LiDAR frames may be slightly noisier than other ARKit apps.</li>
         <li>Pathological combinations of depth strength and pattern size can produce an empty result. Lower the strength and retry.</li>
         <li>3D model loading is limited to <code>.usdz</code>, <code>.usd</code>, <code>.obj</code>, and <code>.scn</code> — formats SceneKit can read natively.</li>
-        <li>In-app 3D scanning needs Apple's Object Capture, which requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro+) on iOS 17+. The button is hidden on unsupported devices.</li>
+        <li>In-app 3D scanning needs Apple's Object Capture, which requires a LiDAR-equipped iPhone or iPad (iPhone 12 Pro+) on iOS 18+. The button is hidden on unsupported devices.</li>
         <li>The macOS app does not include LiDAR live capture or Object Capture (these flows are gated behind <code>#if os(iOS)</code>). On Mac, capture depth from photos, presets, or 3D models loaded from disk.</li>
         <li>Rendering uses Metal by default; if the Metal kernel can't be loaded, the app falls back to a slower parallel CPU path. Both produce numerically aligned output.</li>
       </ul>
